@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+}
+#home{
+    margin:0px;
+    border: 0;
+    padding: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("home_bg.jpg"),no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: aliceblue;
+    font-size: 60px;
+    height: 100vh;
+    background-position: center;
+    font-family:monospace;
+    text-shadow: 2px 2px rgb(0, 231, 162);
+    overflow: auto;
+}
+
+#user{
+    padding-top: 2vh;
+    padding-right: 2vw;
+    float: right;
+}
+#search{
+    width: fit-content;
+    position: relative;
+    margin-top: 45vh;
+    margin-left: 6vw;
+}
+#search input{
+    border-radius: 50px;
+    border-color: aqua;
+    color: rgb(14, 190, 203);
+    background-color: aliceblue;
+    width: 40vw;
+    height: 8vh;
+    text-align: center;
+    font-size: 1.75rem;
+}
+#add{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    margin-top: 35vh;
+    margin-left: 93vw;
+}
+#searchall{
+    border-radius: 50px;
+    border-color: aqua;
+    color: rgb(14, 190, 203);
+    background-color: aliceblue;
+    width: 40vw;
+    height: 8vh;
+    text-align: center;
+    font-size: 1.75rem;
+}
