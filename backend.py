@@ -35,16 +35,40 @@ def login():
 # this route is the search for food page
 @app.route('/food',methods=["POST","GET"])
 def readFood():
-    if(request.method=='GET'):
-        # if request is get , then render the search page
-        return render_template('searchfood.html')
-    if(request.method=='POST'):
-        # needs to recieve a food item and display all parties under that food
-        fooditem=request.form['food']
-        dbc.execute("select partyid,place,userphn from foodata group by food where food=(?)",[fooditem])
-        parties=dbc.fetchall()
-        #tuples of data of each row get returned
-        #render the tuples in html somehow
+    if(session.get('logged',-1)!=True):
+        return redirect(url_for('/'))
+    else:
+        if(request.method=='GET'):
+            # if request is get , then render the search page
+            return render_template('searchfood.html')
+        if(request.method=='POST'):
+            # needs to recieve a food item and display all parties under that food
+            fooditem=request.form['food']
+            dbc.execute("select partyid,place,userphn from foodata group by food where food=(?)",[fooditem])
+            parties=dbc.fetchall()
+            if(parties==[]):
+                return redirect(url_for('foodcreate'))
+            else:
+                return redirect(url_for('showparties'))
+            #tuples of data of each row get returned
+            #render the tuples in html somehow
+
+@app.route('/foodcreate',methods=["POST","GET"])
+def createFood():
+    if(session.get('logged',-1)!=True):
+        return redirect(url_for('/'))
+    else:
+        if(request.method=='GET'):
+            return render_template('foodcreate.html')
+        if(request.method=='POST'):
+            newfood=request.form['newfood']
+            session['food']=newfood
+            return redirect(url_for('createparty'))
+
+
+
+
+
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
