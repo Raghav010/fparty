@@ -1,5 +1,6 @@
-from flask import Flask,render_template,request,redirect
+from flask import Flask,render_template,request,redirect,url_for,session
 import sqlite3 as dbm
+import os
 
 app=Flask(__name__)
 db=dbm.connect('party.db')
@@ -12,15 +13,23 @@ dbc.execute("create table foodata (partyid integer primary key,food varchar(150)
 # login page accepts the name and phone number
 @app.route('/',methods=["GET","POST"])
 def login():
-    if(request.method=='GET'):
-        # if request is get , renders the login html page
-        return render_template('login.html')
-    if(request.method=='POST'):
-        # if its post then we need to recieve user data
-        name=request.form['name']
-        phnum=request.form['number']
-        dbc.execute("insert into UserData values (?,?)",[phnum,name])
-        return redirect('/food')
+    if(session.get('logged',-1)!=True):
+        if(request.method=='GET'):
+            # if request is get , renders the login html page
+            return render_template('login.html')
+        if(request.method=='POST'):
+            # if its post then we need to recieve user data
+            name=request.form['name']
+            phnum=request.form['number']
+            dbc.execute("insert into UserData values (?,?)",[phnum,name])
+
+            # storing user specific data
+            session['name']=name
+            session['phnum']=phnum
+            session['logged']=True
+            return redirect(url_for('food'))
+    else:
+        return redirect(url_for('food'))
 
 
 # this route is the search for food page
@@ -37,7 +46,9 @@ def readFood():
         #tuples of data of each row get returned
         #render the tuples in html somehow
 
-
+if __name__ == "__main__":
+    app.secret_key = os.urandom(12)
+    app.run(debug=True)
 
 
 
