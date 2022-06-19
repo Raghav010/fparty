@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for key,value in parties.items()}
+    <div class="party">
+        <table>
+            <tr class="top">
+                <td align="center"><b>Restaurant: </b>{{value[0]}}</td>
+                <td align="center"><b>Food Item: </b>{{value[1]}}</td>
+            </tr>
+            <tr class="bottom">
+                <td><b>Name: </b>{{value[2]}}</td>
+            </tr>
+            <tr class="bottom">
+                <td><b>Phone No: </b>{{value[3]}}</td>
+            </tr>
+        </table>
+    </div>
+    {% end for}
+</body>
+</html>

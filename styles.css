@@ -26,6 +26,12 @@ body{
 	background-blend-mode: darken;
 }
 
+#login{
+  padding-top: 2vh;
+  padding-right: 2vw;
+  float: right;
+}
+
 #buttons_main{
     position: relative;
     padding-left: 7%;
@@ -57,24 +63,30 @@ button{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  width: 13.17vw;
 }
 
 button:focus {
     outline: none;
     box-shadow: 0 0 0 2px black;
+    width: 13.17vw;
 }
 
 button:active {
   background-color: #006AE8;
+  width: 13.17vw;
 }
 
 button:hover {
   background-color: #1C84FF;
+  width: 13.17vw;
 }
 
-input[type=text]{
+#main_bg input[type=text]{
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border-radius: 8px;
+    color: rgb(14, 190, 203);
+    width: 13.17vw;
 }
