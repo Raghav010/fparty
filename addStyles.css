@@ -37,6 +37,7 @@ body {
     margin-left: 15vw;
     color: white;
 }
+
 /* 
 #form_div form{
     background-color: white;
@@ -45,4 +46,27 @@ body {
 
 fieldset {
     border-radius: 20px;
+}
+
+input[type=submit] {
+    align-items: center;
+    appearance: button;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    line-height: 1.15;
+    font-size: large;
+    margin: 0;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
+    user-select: none;
 }
