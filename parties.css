@@ -1,0 +1,15 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0px;
+    padding: 0;
+    background: url("home_bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+    overflow: auto;
+    
+}
